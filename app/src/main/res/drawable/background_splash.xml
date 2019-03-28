@@ -8,9 +8,5 @@
             android:gravity="fill"
             android:src="@drawable/image"/>
     </item>
-    <item>
-        <bitmap
-            android:gravity="center_vertical"
-            android:src="@drawable/frame"/>
-    </item>
+   <item android:drawable="@drawable/frame"/>
 </layer-list>
