@@ -23,14 +23,17 @@
         android:id="@+id/imageView"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="250dp"/>
-    <ProgressBar
+        android:layout_marginBottom="350dp"/>
+
+    <ImageView
         android:id="@+id/progressBar"
-        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminateDrawable="@drawable/spinner"
+        android:contentDescription=""
+        android:scaleType="centerInside"
+        android:src="@drawable/spinner"
+        tools:ignore="ContentDescription"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="50dp"/>
 </RelativeLayout>

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Saunas</string>
+
+    <string-array name="cities">
+        <item>Москва</item>
+        <item>Воронеж</item>
+        <item>Новосибирск</item>
+        <item>Екатеринбург</item>
+    </string-array>
 </resources>

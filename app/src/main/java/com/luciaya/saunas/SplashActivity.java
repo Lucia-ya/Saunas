@@ -4,30 +4,34 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 /**
  *  Splash - ScreenВыводится темой - бэкграунд картинка пока приложение грузится
  */
 
 public class SplashActivity extends Activity {
-    private final int SPLASH_DISPLAY_LENGHT = 5000;
+    private final int SPLASH_DISPLAY_LENGHT = 5000; //количество милисекунд в таймере
+    ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        mImageView = (ImageView) findViewById(R.id.progressBar);
+        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_center);
+        mImageView.setAnimation(animation);
+
         new Handler().postDelayed(new Runnable() {
             @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            public void run() { //таймер
+                Intent intent = new Intent(SplashActivity.this, SelectCityActivity.class);
                 SplashActivity.this.startActivity(intent);
                 SplashActivity.this.finish();
             }
         }, SPLASH_DISPLAY_LENGHT);
-
-//        Intent intent = new Intent(this, MainActivity.class);
-//        startActivity(intent);
-//        finish();
     }
 
     @Override
