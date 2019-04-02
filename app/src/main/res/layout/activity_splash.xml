@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:contentDescription=""
         android:scaleType="centerInside"
-        android:src="@drawable/spinner"
+        android:src="@drawable/subtract"
         tools:ignore="ContentDescription"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

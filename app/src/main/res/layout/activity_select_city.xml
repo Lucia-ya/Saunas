@@ -36,4 +36,21 @@
         android:spinnerMode="dropdown">
     </Spinner>
 
+    <Button
+        android:id="@+id/city_button"
+        style="@style/NotCapsButton"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/white"
+        android:background="@drawable/city_button"
+        android:text="@string/city_button_text"
+        android:textAlignment="center">
+    </Button>
+
 </RelativeLayout>

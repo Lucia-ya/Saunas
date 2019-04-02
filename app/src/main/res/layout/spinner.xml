@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="288dp"
+    android:layout_height="50dp"
+    android:padding="10dp"
+    android:textStyle="italic"
+    android:textColor="@color/black"
+    android:fontFamily="sans-serif-medium"
+    />
