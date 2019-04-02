@@ -22,6 +22,7 @@
             android:name=".SelectCityActivity"
             android:theme="@style/SplashTheme"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".SaunasCatalogActivity"/>
     </application>
 
 </manifest>

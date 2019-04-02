@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Saunas</string>
     <string name="city_button_text">Продолжить</string>
+    <string name="menu_bottom_catalog">Каталог</string>
+    <string name="menu_bottom_favorites">Избранное</string>
+    <string name="menu_bottom_selection">Подбор</string>
+    <string name="menu_bottom_on_map">На карте</string>
+    <string name="menu_bottom_settings">Настройки</string>
 </resources>

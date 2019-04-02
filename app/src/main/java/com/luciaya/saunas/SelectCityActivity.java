@@ -70,7 +70,7 @@ public class SelectCityActivity extends Activity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelectCityActivity.this, MainActivity.class);
+                Intent intent = new Intent(SelectCityActivity.this, SaunasCatalogActivity.class);
                 SelectCityActivity.this.startActivity(intent);
                 SelectCityActivity.this.finish();
             }
