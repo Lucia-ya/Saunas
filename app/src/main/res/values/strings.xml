@@ -6,4 +6,5 @@
     <string name="menu_bottom_selection">Подбор</string>
     <string name="menu_bottom_on_map">На карте</string>
     <string name="menu_bottom_settings">Настройки</string>
+    <string name="action_search">Поиск по саунам</string>
 </resources>

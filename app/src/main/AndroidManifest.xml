@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".View.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -19,10 +19,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectCityActivity"
+            android:name=".View.SelectCityActivity"
             android:theme="@style/SplashTheme"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SaunasCatalogActivity"/>
+        <activity android:name=".View.MainActivity"/>
     </application>
 
 </manifest>

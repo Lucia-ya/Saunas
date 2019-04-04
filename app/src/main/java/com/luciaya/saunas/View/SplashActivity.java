@@ -1,4 +1,4 @@
-package com.luciaya.saunas;
+package com.luciaya.saunas.View;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.luciaya.saunas.R;
 
 /**
  *  Splash - ScreenВыводится темой - бэкграунд картинка пока приложение грузится

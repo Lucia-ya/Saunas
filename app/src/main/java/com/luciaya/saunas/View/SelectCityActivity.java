@@ -1,4 +1,4 @@
-package com.luciaya.saunas;
+package com.luciaya.saunas.View;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.luciaya.saunas.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,7 +72,7 @@ public class SelectCityActivity extends Activity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SelectCityActivity.this, SaunasCatalogActivity.class);
+                Intent intent = new Intent(SelectCityActivity.this, MainActivity.class);
                 SelectCityActivity.this.startActivity(intent);
                 SelectCityActivity.this.finish();
             }

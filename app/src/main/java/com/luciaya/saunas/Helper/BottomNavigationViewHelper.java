@@ -1,4 +1,4 @@
-package com.luciaya.saunas;
+package com.luciaya.saunas.Helper;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
