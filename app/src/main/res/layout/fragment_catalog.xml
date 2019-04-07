@@ -5,17 +5,11 @@
               android:layout_height="match_parent">
 
 
-    <SearchView
+    <android.support.v7.widget.SearchView
         android:id="@+id/search_view_catalog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:actionViewClass="android.support.v7.widget.SearchView"
-        android:focusable="true"
-        android:title="@string/action_search">
-
-    </SearchView>
+        android:clickable="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_catalog"

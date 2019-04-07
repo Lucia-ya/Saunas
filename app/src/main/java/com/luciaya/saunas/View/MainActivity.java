@@ -23,7 +23,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView); //Disable shift mode in BottomNavigationView
+
         fragmentManager = getSupportFragmentManager();
+        fragment = new CatalogFragment();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.main_container, fragment).commit();
+
+        //fragmentManager.beginTransaction().add(R.id.main_container, fragment).commit();
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
@@ -45,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 //                        fragment = new SettingsFragment();
 //                        break;
                 }
-                final FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.main_container, fragment).commit();
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+                ft.replace(R.id.main_container, fragment).commit();
             }
         });
     }

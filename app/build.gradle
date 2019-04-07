@@ -4,6 +4,7 @@ android {
     compileSdkVersion 27
     //buildToolsVersion "27.0.3"
     defaultConfig {
+        applicationId "com.javapapers.android.androidsearchviewactionbar"
         applicationId "com.luciaya.saunas"
         minSdkVersion 19
         targetSdkVersion 27
@@ -32,4 +33,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'com.android.support:recyclerview-v7:27.0.1'
     implementation 'com.android.support:design:27.+'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

@@ -1,6 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/star_of_month"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription=""
+        android:src="@drawable/ic_star_sauna_of_month"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        />
+
+    <TextView
+        android:id="@+id/text_of_month_catalog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/sauna_of_month"
+        android:textAlignment="viewStart"
+        android:textColor="@color/red_sauna_of_month"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/star_of_month"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/catalog_sauna_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_of_month_catalog"
+        tools:text="NameOfSauna"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/image_recycler_view_catalog"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catalog_sauna_name"/>
+
+    <TextView
+        android:id="@+id/sauna_price_catalog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_recycler_view_catalog"
+        tools:text="800 рублей в час"/>
+
+    <TextView
+        android:id="@+id/num_of_peoples_catalog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/num_of_hours_catalog"
+        app:layout_constraintStart_toEndOf="@+id/sauna_price_catalog"
+        app:layout_constraintTop_toBottomOf="@+id/image_recycler_view_catalog"
+        tools:text="до 30 человек"/>
+
+    <TextView
+        android:id="@+id/num_of_hours_catalog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_recycler_view_catalog"
+        tools:text="от 3 часов"/>
+
+    <ImageView
+        android:id="@+id/location_image_catalog"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="29dp"
+        android:src="@drawable/ic_address_image"
+        android:contentDescription=""
+        tools:ignore="ContentDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/num_of_hours_catalog"/>
+
+    <TextView
+        android:id="@+id/address_text_catalog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/location_image_catalog"
+        app:layout_constraintTop_toBottomOf="@+id/num_of_hours_catalog"
+        tools:text="Ташкент Бухара 1"/>
+
+    <ImageButton
+        android:id="@+id/open_on_map_catalog"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_open_on_map"
+        android:contentDescription=""
+        tools:ignore="ContentDescription"
+        app:layout_constraintEnd_toStartOf="@+id/favorite_button_cat"
+        app:layout_constraintTop_toBottomOf="@+id/num_of_hours_catalog"/>
+
+    <ImageButton
+        android:id="@+id/favorite_button_cat"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/ic_favorite_address"
+        android:contentDescription=""
+        tools:ignore="ContentDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/num_of_hours_catalog"/>
+
+    <Button
+        android:id="@+id/call_catalog"
+        style="@style/NotCapsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/city_button"
+        android:gravity="center"
+        android:drawableLeft="@drawable/ic_call_button_catalog"
+        android:text="@string/call_button"
+        android:textColor="@color/white"
+        android:contentDescription=""
+        tools:ignore="ContentDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_text_catalog"/>
+
 </android.support.constraint.ConstraintLayout>

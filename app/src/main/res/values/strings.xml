@@ -7,4 +7,6 @@
     <string name="menu_bottom_on_map">На карте</string>
     <string name="menu_bottom_settings">Настройки</string>
     <string name="action_search">Поиск по саунам</string>
+    <string name="sauna_of_month">САУНА МЕСЯЦА</string>
+    <string name="call_button">Позвонить</string>
 </resources>

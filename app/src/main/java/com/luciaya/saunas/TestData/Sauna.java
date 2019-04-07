@@ -8,9 +8,7 @@ public class Sauna {
     private String description;
     private int price;
     private int number_of_persons;
-    private String urlFirstPicture;
-    private String urlSecondPicture;
-    private String urlThirdPicture;
+    String[] imagesUrl;
     private int number_of_hours;
     private boolean sauna_of_month;
     private String address;
@@ -23,26 +21,14 @@ public class Sauna {
         mUUID = UUID;
     }
 
-    public String getUrlThirdPicture() {
-        return urlThirdPicture;
-    }
-
-    public void setUrlThirdPicture(String urlThirdPicture) {
-        this.urlThirdPicture = urlThirdPicture;
-    }
-
     public Sauna(UUID uuid, String name, String description, int price, int number_of_persons,
-                 String urlFirstPicture, String urlSecondPicture, String urlThirdPicture,
-                 int number_of_hours, boolean sauna_of_month, String address) {
+                 String[] imagesUrl, int number_of_hours, boolean sauna_of_month, String address) {
         this.mUUID = uuid;
         this.name = name;
         this.description = description;
         this.price = price;
         this.number_of_persons = number_of_persons;
-        this.urlFirstPicture = urlFirstPicture;
-        this.urlSecondPicture = urlSecondPicture;
-        this.urlThirdPicture = urlThirdPicture;
-        this.number_of_hours = number_of_hours;
+        this.imagesUrl = imagesUrl;
         this.sauna_of_month = sauna_of_month;
         this.address = address;
     }
@@ -79,28 +65,12 @@ public class Sauna {
         this.number_of_persons = number_of_persons;
     }
 
-    public String getUrlFirstPicture() {
-        return urlFirstPicture;
+    public String[] getImagesUrl() {
+        return imagesUrl;
     }
 
-    public void setUrlFirstPicture(String urlFirstPicture) {
-        this.urlFirstPicture = urlFirstPicture;
-    }
-
-    public String getUrlSecondPicture() {
-        return urlSecondPicture;
-    }
-
-    public void setUrlSecondPicture(String urlSecondPicture) {
-        this.urlSecondPicture = urlSecondPicture;
-    }
-
-    public String getUrlTirdPicture() {
-        return urlThirdPicture;
-    }
-
-    public void setUrlTirdPicture(String urlTirdPicture) {
-        this.urlThirdPicture = urlTirdPicture;
+    public void setImagesUrl(String[] imagesUrl) {
+        this.imagesUrl = imagesUrl;
     }
 
     public int getNumber_of_hours() {
