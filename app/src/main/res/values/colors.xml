@@ -9,4 +9,6 @@
     <color name="icon_gray">#8C8C8C</color>
     <color name="icon_red">#F92A2A</color>
     <color name="red_sauna_of_month">#FB1F1F</color>
+    <color name="action_bar_red">#482921</color>
+    <color name="gray">#B2B2B2</color>
 </resources>

@@ -6,6 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="SaunaTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/action_bar_red</item>
+        <item name="colorPrimaryDark">@color/action_bar_red</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
@@ -16,10 +25,15 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="MyActionBar"
+           parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/action_bar_red</item>
+    </style>
+
     <style name="spinner_style">
         <item name="android:background">@drawable/spinner</item>
-        <item name="android:layout_marginLeft">100dp</item>
-        <item name="android:layout_marginRight">100dp</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:paddingLeft">6dp</item>
         <item name="android:paddingTop">4dp</item>

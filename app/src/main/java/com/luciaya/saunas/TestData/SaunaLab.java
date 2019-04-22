@@ -11,15 +11,15 @@ public class SaunaLab {
     private List<Sauna> saunas;
 
     private SaunaLab() {
-        saunas = new ArrayList<Sauna>();
+        saunas = new ArrayList<>();
         saunas.add(new Sauna(randomUUID(), "Sauna1", "Good sauna", 800,
                 6, new String[]{"https://i.imgur.com/o7aE43w.png",
                 "https://i.imgur.com/oGDcoof.png", "https://i.imgur.com/Ig9qhmW.png"},
-                3, true, "Bukhara 1"));
+                3, false, "Bukhara 1"));
         saunas.add(new Sauna(randomUUID(), "Sauna2", "Bad sauna", 700,
                 10, new String[]{"https://i.imgur.com/151vFNN.png",
                 "https://i.imgur.com/1n6NGwS.jpg", "https://i.imgur.com/zUIPfQ2.jpg"},
-                24, false, "Tashkent 2"));
+                24, true, "Tashkent 2"));
     }
 
     public static SaunaLab get() {

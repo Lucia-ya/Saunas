@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.luciaya.saunas">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -11,17 +12,18 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".View.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".View.SelectCityActivity"
             android:theme="@style/SplashTheme"/>
-        <activity android:name=".View.MainActivity"/>
+        <activity android:name=".View.MainActivity"
+            android:theme="@style/SaunaTheme"/>
     </application>
 
 </manifest>

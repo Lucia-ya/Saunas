@@ -9,4 +9,17 @@
     <string name="action_search">Поиск по саунам</string>
     <string name="sauna_of_month">САУНА МЕСЯЦА</string>
     <string name="call_button">Позвонить</string>
+    <string name="catalog_title">Каталог саун</string>
+    <string name="in_favorite">В избранное</string>
+    <string name="share_item">Поделиться</string>
+    <string name="conditions">Условия</string>
+    <string name="item_sauna_price">Стоимость</string>
+    <string name="roominess">Вместительность</string>
+    <string name="item_sauna_minimum_time">Минимальное время</string>
+    <string name="item_working_hours">Время работы</string>
+    <string name="item_description">Описание</string>
+    <string name="item_rent">Аренда банных принадлежностей:</string>
+    <string name="take_review">Оставить отзыв</string>
+    <string name="item_review">Отзывы</string>
+    <string name="item_saunas_beside">Сауны рядом</string>
 </resources>

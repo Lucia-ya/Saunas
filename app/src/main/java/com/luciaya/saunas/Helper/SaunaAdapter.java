@@ -6,13 +6,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.luciaya.saunas.R;
 import com.luciaya.saunas.TestData.Sauna;
+import com.luciaya.saunas.View.MainActivity;
 
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
         private TextView address;
         private ImageButton openOnMap;
         private ImageButton addToFavorite;
-        private Button call;
+        private LinearLayout call;
 
         public ContactHolder(View itemView) {
             super(itemView);
@@ -82,7 +83,7 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
             address = (TextView) itemView.findViewById(R.id.address_text_catalog);
             openOnMap = (ImageButton) itemView.findViewById(R.id.open_on_map_catalog);
             addToFavorite = (ImageButton) itemView.findViewById(R.id.favorite_button_cat);
-            call = (Button) itemView.findViewById(R.id.call_catalog);
+            call = (LinearLayout) itemView.findViewById(R.id.call_catalog);
             itemView.setOnClickListener(this); //назначаем слушатель
         }
 
@@ -92,13 +93,12 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
                 saunaOfMonthImage.setVisibility(View.VISIBLE);
                 saunaOfMonthText.setVisibility(View.VISIBLE);
             } else {
-                saunaOfMonthImage.setVisibility(View.INVISIBLE);
-                saunaOfMonthText.setVisibility(View.INVISIBLE);
+                saunaOfMonthImage.setVisibility(View.GONE);
+                saunaOfMonthText.setVisibility(View.GONE);
             }
             saunaName.setText(mSauna.getName());
             imagesRecyclerView.setAdapter(new ImageAdapter(mSauna.getImagesUrl()));
-            price.setText(String.valueOf(mSauna.getPrice()));
-            numOfHours.setText(mSauna.getNumber_of_hours() + " рублей в час");
+            price.setText(mSauna.getPrice() + " рублей в час");
             numOfPeoples.setText("до " + mSauna.getNumber_of_persons() + " человек");
             numOfHours.setText("до " + mSauna.getNumber_of_hours() + " часов");
             address.setText(mSauna.getAddress());
@@ -106,8 +106,7 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
 
         @Override
         public void onClick(View view) { //если кликаем на объекте - передаем интент с жтим контактом в ContactPagerActivity
-//            Intent intent = SaunaPagerActivity.newIntent(getActivity(), mContact.getContactId());
-//            startActivity(intent);
+            ((MainActivity) view.getContext()).onTouchItem(mSauna.getUUID());
         }
     }
 

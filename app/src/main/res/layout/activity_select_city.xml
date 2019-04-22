@@ -12,45 +12,48 @@
         android:scaleType="centerCrop"
         android:contentDescription=""
         tools:ignore="ContentDescription"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription=""
-        android:scaleType="centerInside"
-        android:src="@drawable/frame"
-        tools:ignore="ContentDescription"
-        android:id="@+id/imageView"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="350dp"/>
-
-    <Spinner
-        android:id="@+id/spinner"
-        style="@style/spinner_style"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"
-        android:spinnerMode="dropdown">
-    </Spinner>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/city_button"
-        style="@style/NotCapsButton"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:spinnerMode="dropdown"
-        android:textColor="@color/white"
-        android:background="@drawable/city_button"
-        android:text="@string/city_button_text"
-        android:textAlignment="center">
-    </Button>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription=""
+            android:scaleType="centerInside"
+            android:src="@drawable/frame"
+            tools:ignore="ContentDescription"
+            android:id="@+id/imageView"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            style="@style/spinner_style"
+            android:layout_width="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_height="?attr/actionBarSize"
+            android:spinnerMode="dropdown">
+        </Spinner>
+
+        <Button
+            android:id="@+id/city_button"
+            style="@style/NotCapsButton"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dropdown"
+            android:textColor="@color/white"
+            android:background="@drawable/city_button"
+            android:text="@string/city_button_text"
+            android:textSize="17sp"
+            android:textAlignment="center">
+        </Button>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

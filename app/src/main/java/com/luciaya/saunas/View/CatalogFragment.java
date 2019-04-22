@@ -37,6 +37,7 @@ public class CatalogFragment extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_catalog, container, false);
         mSearchView = (SearchView) view.findViewById(R.id.search_view_catalog);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_catalog);
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         updateUI();
 
@@ -55,6 +56,11 @@ public class CatalogFragment extends android.support.v4.app.Fragment {
         }
     }
 
+    public void onResume(){
+        super.onResume();
+        // Set title bar
+        ((MainActivity) getActivity()).setActionBarLayout(R.layout.fragment_catalog_action_bar);
+    }
 
 
 

@@ -6,16 +6,20 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.luciaya.saunas.Helper.BottomNavigationViewHelper;
 import com.luciaya.saunas.R;
 
+import java.util.UUID;
+
 public class MainActivity extends AppCompatActivity {
     private Fragment fragment;
     private FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
+    private FragmentTransaction ft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         fragment = new CatalogFragment();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft = fragmentManager.beginTransaction();
         ft.replace(R.id.main_container, fragment).commit();
+
 
         //fragmentManager.beginTransaction().add(R.id.main_container, fragment).commit();
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
@@ -51,9 +56,23 @@ public class MainActivity extends AppCompatActivity {
 //                        fragment = new SettingsFragment();
 //                        break;
                 }
-                FragmentTransaction ft = fragmentManager.beginTransaction();
+                ft = fragmentManager.beginTransaction();
                 ft.replace(R.id.main_container, fragment).commit();
             }
         });
     }
+
+    public void setActionBarLayout(int layout) {
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(layout);
+    }
+
+    public void onTouchItem(UUID saunaId) {
+        SaunaPagerFragment saunaPagerFragment = SaunaPagerFragment.newInstance(saunaId);
+        ft = fragmentManager.beginTransaction();
+        ft.addToBackStack(null);
+        ft.replace(R.id.main_container, saunaPagerFragment).commit();
+    }
+
+
 }

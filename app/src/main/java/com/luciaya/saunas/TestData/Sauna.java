@@ -29,6 +29,7 @@ public class Sauna {
         this.price = price;
         this.number_of_persons = number_of_persons;
         this.imagesUrl = imagesUrl;
+        this.number_of_hours = number_of_hours;
         this.sauna_of_month = sauna_of_month;
         this.address = address;
     }
