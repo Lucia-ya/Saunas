@@ -1,5 +1,7 @@
 package com.luciaya.saunas.Helper;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,25 +15,30 @@ import android.widget.TextView;
 
 import com.luciaya.saunas.R;
 import com.luciaya.saunas.TestData.Sauna;
-import com.luciaya.saunas.View.MainActivity;
+import com.luciaya.saunas.View.SaunaPagerActivity;
 
 import java.util.List;
 
 public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolder> { //класс адаптера
     private List<Sauna> mSaunas;
     private List<Sauna> mSaunasFiltered;
+    private Context mContext;
+    private final String TAG = "SaunaAdapter";
 
-    public SaunaAdapter(List<Sauna> saunas) { //конструктор адаптера
+
+    public SaunaAdapter(Context context, List<Sauna> saunas) { //конструктор адаптера
+        Log.d(TAG, "SaunaAdapter: constructor");
         mSaunas = saunas;
         mSaunasFiltered = mSaunas;
-
+        mContext = context;
     }
 
     @Override
     public ContactHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d(TAG, "onCreateViewHolder: ");
+        //        return new ContactHolder(layoutInflater, parent);
         View itemView = LayoutInflater.
-                from(parent.getContext()).inflate(R.layout.list_item_catalog, parent, false);
-        Log.d("onCreateViewHold", "вызван");
+                from(mContext).inflate(R.layout.list_item_catalog, parent, false);
         return new ContactHolder(itemView);
     }
 
@@ -55,7 +62,7 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
     }
 
     //создание ViewHolder - управляет одним элементом в списке
-    public final static class ContactHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public final class ContactHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private Sauna mSauna;
         private ImageView saunaOfMonthImage;
         private TextView saunaOfMonthText;
@@ -70,8 +77,8 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
         private ImageButton addToFavorite;
         private LinearLayout call;
 
-        public ContactHolder(View itemView) {
-            super(itemView);
+        public ContactHolder(View view) {
+            super(view);
             saunaOfMonthImage = (ImageView)itemView.findViewById(R.id.star_of_month);
             saunaOfMonthText = (TextView) itemView.findViewById(R.id.text_of_month_catalog);
             saunaName = (TextView) itemView.findViewById(R.id.catalog_sauna_name);
@@ -105,8 +112,12 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
         }
 
         @Override
-        public void onClick(View view) { //если кликаем на объекте - передаем интент с жтим контактом в ContactPagerActivity
-            ((MainActivity) view.getContext()).onTouchItem(mSauna.getUUID());
+        public void onClick(View view) { //если кликаем на объекте - этим контактом в ContactPagerActivity
+
+
+            Intent intent = SaunaPagerActivity.newIntent(mContext, mSauna.getUUID());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent);
         }
     }
 

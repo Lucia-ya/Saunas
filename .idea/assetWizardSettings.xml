@@ -35,7 +35,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_launch_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_keyboard_arrow_left_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -70,9 +70,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="imageAsset" value="C:\Users\Люсия\Desktop\bottom\Tool Bars\Vector2.png" />
-                                      <entry key="outputName" value="ic_share_item" />
+                                      <entry key="outputName" value="abc_ic_back_material" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="000000" />
+                                      <entry key="themeColor" value="fcb54c" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -24,6 +24,9 @@
             android:theme="@style/SplashTheme"/>
         <activity android:name=".View.MainActivity"
             android:theme="@style/SaunaTheme"/>
+        <activity android:name=".View.SaunaPagerActivity"
+                  android:theme="@style/SaunaTheme"
+                  android:parentActivityName=".View.MainActivity"/>
     </application>
 
 </manifest>

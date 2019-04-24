@@ -13,13 +13,13 @@ import android.view.MenuItem;
 import com.luciaya.saunas.Helper.BottomNavigationViewHelper;
 import com.luciaya.saunas.R;
 
-import java.util.UUID;
-
 public class MainActivity extends AppCompatActivity {
-    private Fragment fragment;
-    private FragmentManager fragmentManager;
+    private Fragment active;
+    private FragmentManager fm = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction ft;
+    final Fragment fragmentCatalog = new CatalogFragment();
+    final Fragment fragmentSaunaPager = new SaunaPagerFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +28,19 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView); //Disable shift mode in BottomNavigationView
 
-        fragmentManager = getSupportFragmentManager();
-        fragment = new CatalogFragment();
-        ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.main_container, fragment).commit();
+
+        //fm.beginTransaction().add(R.id.main_container, fragmentSaunaPager, "2").hide(fragmentSaunaPager).commit();
+        fm.beginTransaction().add(R.id.main_container, fragmentCatalog, "1").commit();
 
 
-        //fragmentManager.beginTransaction().add(R.id.main_container, fragment).commit();
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 switch (id){
                     case R.id.action_catalog:
-                        fragment = new CatalogFragment();
-                        break;
+                        fm.beginTransaction().hide(active).show(fragmentCatalog).commit();
+                        active = fragmentCatalog;
 //                    case R.id.action_favorites:
 //                        fragment = new FavoritesFragment();
 //                        break;
@@ -56,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
 //                        fragment = new SettingsFragment();
 //                        break;
                 }
-                ft = fragmentManager.beginTransaction();
-                ft.replace(R.id.main_container, fragment).commit();
             }
         });
     }
@@ -67,12 +63,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(layout);
     }
 
-    public void onTouchItem(UUID saunaId) {
-        SaunaPagerFragment saunaPagerFragment = SaunaPagerFragment.newInstance(saunaId);
-        ft = fragmentManager.beginTransaction();
-        ft.addToBackStack(null);
-        ft.replace(R.id.main_container, saunaPagerFragment).commit();
-    }
 
 
 }

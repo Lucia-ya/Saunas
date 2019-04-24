@@ -15,7 +15,7 @@ import com.luciaya.saunas.R;
  */
 
 public class SplashActivity extends Activity {
-    private final int SPLASH_DISPLAY_LENGHT = 5000; //количество милисекунд в таймере
+    private final int SPLASH_DISPLAY_LENGHT = 1500; //количество милисекунд в таймере
     ImageView mImageView;
 
     @Override

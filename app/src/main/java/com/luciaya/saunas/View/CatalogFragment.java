@@ -1,10 +1,12 @@
 package com.luciaya.saunas.View;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,9 @@ public class CatalogFragment extends android.support.v4.app.Fragment {
     private RecyclerView mRecyclerView;
     private SaunaAdapter mAdapter;
     private List<Sauna> mSaunas;
+    private final String TAG = "CatalogFragment";
+    private LinearLayoutManager linearLayoutManager;
+    private Context mContext;
 
     public CatalogFragment() {
     }
@@ -37,8 +42,8 @@ public class CatalogFragment extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_catalog, container, false);
         mSearchView = (SearchView) view.findViewById(R.id.search_view_catalog);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_catalog);
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setAdapter(mAdapter);
         updateUI();
 
         return view;
@@ -48,19 +53,24 @@ public class CatalogFragment extends android.support.v4.app.Fragment {
         SaunaLab saunaLab = SaunaLab.get();
         List<Sauna> saunas = saunaLab.getSaunas(); //массив с контактами
         if (mAdapter == null) { //если адаптера еще нет, создать. Если есть, обновить список саун
-            mAdapter = new SaunaAdapter(saunas);
+            Log.d(TAG, "updateUI: mAdapter == null");
+            mAdapter = new SaunaAdapter(getActivity().getApplicationContext(), saunas);
             mRecyclerView.setAdapter(mAdapter);
         } else {
+            Log.d(TAG, "updateUI: mAdapter != null");
             mAdapter.setSaunas(saunas);
             mAdapter.notifyDataSetChanged();
+            mRecyclerView.setAdapter(mAdapter);
         }
+
     }
 
     public void onResume(){
         super.onResume();
-        // Set title bar
-        ((MainActivity) getActivity()).setActionBarLayout(R.layout.fragment_catalog_action_bar);
+//            updateUI();
     }
+
+
 
 
 
