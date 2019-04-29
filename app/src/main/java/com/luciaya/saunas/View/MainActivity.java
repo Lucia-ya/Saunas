@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         //fm.beginTransaction().add(R.id.main_container, fragmentSaunaPager, "2").hide(fragmentSaunaPager).commit();
         fm.beginTransaction().add(R.id.main_container, fragmentCatalog, "1").commit();
 
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setTitle(R.string.catalog_title);
 
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (id){
                     case R.id.action_catalog:
                         fm.beginTransaction().hide(active).show(fragmentCatalog).commit();
+                        getSupportActionBar().setTitle(R.string.catalog_title);
                         active = fragmentCatalog;
 //                    case R.id.action_favorites:
 //                        fragment = new FavoritesFragment();
@@ -57,12 +60,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void setActionBarLayout(int layout) {
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(layout);
-    }
-
 
 
 }

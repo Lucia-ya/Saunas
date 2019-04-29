@@ -38,6 +38,7 @@ public class SaunaPagerActivity extends AppCompatActivity{
         upArrow.setColorFilter(getResources().getColor(R.color.action_bar_yellow), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setTitle(R.string.menu_bottom_catalog);
         //getSupportActionBar().setCustomView(R.layout.sauna_page_action_bar);
 
         UUID saunaId = (UUID) getIntent().getSerializableExtra(EXTRA_SAUNA_ID); //принимаем интент с парамером - айди сауны

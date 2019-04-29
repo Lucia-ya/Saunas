@@ -24,6 +24,7 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         mImageView = (ImageView) findViewById(R.id.progressBar);
         final Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_center);
+        animation.setRepeatMode(Animation.INFINITE);
         mImageView.setAnimation(animation);
 
         new Handler().postDelayed(new Runnable() {
