@@ -27,6 +27,10 @@
         <activity android:name=".View.SaunaPagerActivity"
                   android:theme="@style/SaunaTheme"
                   android:parentActivityName=".View.MainActivity"/>
+        <activity android:name=".View.NewReviewActivity"
+                  android:theme="@style/SaunaTheme"
+                  android:label=""
+                  android:parentActivityName=".View.SaunaPagerActivity"/>
     </application>
 
 </manifest>

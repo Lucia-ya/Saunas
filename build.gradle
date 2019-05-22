@@ -20,8 +20,9 @@ allprojects {
         google()
         mavenLocal()
         mavenCentral()
-        maven {                                  // <-- Add this
-            url 'https://maven.google.com/'
+        maven {
+            url 'https://jitpack.io'// <-- Add this
+            //url 'https://maven.google.com/'
             name 'Google'
         }
     }

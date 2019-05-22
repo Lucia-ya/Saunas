@@ -42,7 +42,7 @@ public class SelectCityActivity extends Activity {
 
             @Override
             public boolean isEnabled(int position){
-                if(position == 1)
+                if(position == 0)
                 {
                     // Disable the second item from Spinner
                     return false;

@@ -35,7 +35,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_keyboard_arrow_left_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/hardware/ic_keyboard_arrow_right_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -70,11 +70,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="assetType" value="IMAGE" />
                                       <entry key="imageAsset" value="C:\Users\Люсия\Downloads\Telegram Desktop\review_dizlike.png" />
-                                      <entry key="outputName" value="review_dizlike" />
+                                      <entry key="outputName" value="select_right" />
                                       <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="f81f1f" />
+                                      <entry key="themeColor" value="8a8a8f" />
                                     </map>
                                   </option>
                                 </PersistentState>

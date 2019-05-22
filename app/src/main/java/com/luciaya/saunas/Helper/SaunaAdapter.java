@@ -113,8 +113,6 @@ public class SaunaAdapter extends RecyclerView.Adapter<SaunaAdapter.ContactHolde
 
         @Override
         public void onClick(View view) { //если кликаем на объекте - этим контактом в ContactPagerActivity
-
-
             Intent intent = SaunaPagerActivity.newIntent(mContext, mSauna.getUUID());
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(intent);

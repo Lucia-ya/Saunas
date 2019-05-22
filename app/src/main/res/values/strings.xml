@@ -22,4 +22,27 @@
     <string name="take_review">Оставить отзыв</string>
     <string name="item_review">Отзывы</string>
     <string name="item_saunas_beside">Сауны рядом</string>
+    <string name="no_reviews">У сауны нет отзывов, ваш может стать первым!</string>
+    <string name="like">Доволен</string>
+    <string name="dislike">Не доволен</string>
+    <string name="review_name">Имя:</string>
+    <string name="review_email">E-mail:</string>
+    <string name="review_phone">Телефон:</string>
+    <string name="your_review">Ваш отзыв</string>
+    <string name="cancel">Отменить</string>
+    <string name="review">Отзыв</string>
+    <string name="send">Отправить</string>
+    <string name="price_in_hour">Цена в час</string>
+    <string name="select_array">Выбор района</string>
+    <string name="type_room">Тип парной</string>
+    <string name="comfort">Удобства</string>
+    <string name="additional_services">Дополнительные удобства</string>
+    <string name="accessories">Аксессуары</string>
+    <string name="show_offers">Показать предложения</string>
+    <string name="alert_dialog_politic">Отправляя отзыв вы даете свое согласие на обработку персональных данных \n
+    Подробнее о политике конфиденциальности можно узнать по адресу: http://kursk.saunagoroda.ru/privacy_policy</string>
+    <string name="reset">Сбросить</string>
+    <string name="receive_promotions">Получать уведомления об акциях</string>
+    <string name="receive_notifications">Получать уведомления о новых саунах</string>
+    <string name="city">Город:</string>
 </resources>

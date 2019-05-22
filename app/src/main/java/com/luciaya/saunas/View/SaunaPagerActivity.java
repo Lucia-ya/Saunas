@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.luciaya.saunas.R;
@@ -37,7 +36,6 @@ public class SaunaPagerActivity extends AppCompatActivity{
         final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_back_material);
         upArrow.setColorFilter(getResources().getColor(R.color.action_bar_yellow), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setTitle(R.string.menu_bottom_catalog);
         //getSupportActionBar().setCustomView(R.layout.sauna_page_action_bar);
 
