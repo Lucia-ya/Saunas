@@ -45,4 +45,5 @@
     <string name="receive_promotions">Получать уведомления об акциях</string>
     <string name="receive_notifications">Получать уведомления о новых саунах</string>
     <string name="city">Город:</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

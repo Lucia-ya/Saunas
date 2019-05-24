@@ -1,9 +1,11 @@
 package com.luciaya.saunas.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,8 @@ public class SelectionFragment extends Fragment implements View.OnClickListener,
     private int max_price;
     private int min_persons;
     private int max_persons;
+
+    private final String TAG = "SelectionFragment";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,8 +86,11 @@ public class SelectionFragment extends Fragment implements View.OnClickListener,
                 Toast.makeText(getActivity(), "Вы нажали: Тип парной", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.select_comfort:
-
-                Toast.makeText(getActivity(), "Вы нажали: Удобства", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onClick: Удобства");
+                Intent intent = ComfortsActivity.newIntent(getContext());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                //Toast.makeText(getActivity(), "Вы нажали: Удобства", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.select_additional_services:
                 Toast.makeText(getActivity(), "Вы нажали: Дополнительные удобства", Toast.LENGTH_SHORT).show();

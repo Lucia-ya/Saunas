@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.luciaya.saunas.Helper.ImageAdapter;
 import com.luciaya.saunas.R;
@@ -24,7 +25,7 @@ import com.luciaya.saunas.TestData.SaunaLab;
 
 import java.util.UUID;
 
-public class SaunaPagerFragment extends Fragment {
+public class SaunaPagerFragment extends Fragment implements View.OnClickListener {
     private Sauna mSauna;
     private static final String ARG_SAUNA_ID = "sauna_id";
     private final String TAG = "SaunaPagerFragment";
@@ -41,7 +42,7 @@ public class SaunaPagerFragment extends Fragment {
     private TextView description;
     private TextView rentDescription;
     private TextView address;
-    private MapView mMapView;
+    private MapView mapView;
     private ImageView firstReviewLike;
     private ImageView firstViewDislike;
     private TextView firstreviewName;
@@ -61,6 +62,8 @@ public class SaunaPagerFragment extends Fragment {
     private ImageView secondSaunaBesideImage;
     private TextView secondSaunaBesideName;
     private TextView secondSaunaBesideAddress;
+
+    private GoogleMap gMap;
 
 
 
@@ -99,7 +102,7 @@ public class SaunaPagerFragment extends Fragment {
         description = view.findViewById(R.id.item_description);
         rentDescription = view.findViewById(R.id.item_rent_descriptions);
         address = view.findViewById(R.id.item_address_text);
-        mMapView = view.findViewById(R.id.item_mapView);
+        mapView = view.findViewById(R.id.item_mapView);
         firstReviewLike = view.findViewById(R.id.item_like);
         firstViewDislike = view.findViewById(R.id.item_dislike);
         firstreviewName = view.findViewById(R.id.item_first_review_name);
@@ -166,15 +169,7 @@ public class SaunaPagerFragment extends Fragment {
                 secondReview.setText(mSauna.getReviews().get(1).getDescription());
             }
 
-            takeReview.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d(TAG, "onClick take review: sauna id = " + mSauna.getUUID().toString());
-                    Intent intent = NewReviewActivity.newIntent(getContext(), mSauna.getUUID());
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }
-            });
+            takeReview.setOnClickListener(this);
         }
 
 
@@ -190,8 +185,16 @@ public class SaunaPagerFragment extends Fragment {
     }
 
 
-
-
-
-
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.item_button_take_review:
+                Log.d(TAG, "onClick take review: sauna id = " + mSauna.getUUID().toString());
+                Intent intent = NewReviewActivity.newIntent(getContext(), mSauna.getUUID());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            default:break;
+        }
+    }
 }

@@ -12,16 +12,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.SupportMapFragment;
 import com.luciaya.saunas.Helper.BottomNavigationViewHelper;
 import com.luciaya.saunas.R;
 
 public class MainActivity extends AppCompatActivity {
-    private FragmentManager fm = getSupportFragmentManager();
+    private final FragmentManager fm = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction ft;
-    final Fragment fragmentCatalog = new CatalogFragment();
-    final Fragment fragmentSelection = new SelectionFragment();
-    final Fragment fragmentSettings = new SettingsFragment();
+    private final Fragment fragmentCatalog = new CatalogFragment();
+    private final Fragment fragmentSelection = new SelectionFragment();
+    private final Fragment fragmentSettings = new SettingsFragment();
+    private final SupportMapFragment fragmentMap = new MapsFragment();
     private Fragment active = fragmentCatalog;
     private final String TAG = "Main Activity";
     @Override
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView); //Disable shift mode in BottomNavigationView
 
+        fm.beginTransaction().add(R.id.main_container, fragmentMap, "4").hide(fragmentMap).commit();
         fm.beginTransaction().add(R.id.main_container, fragmentSettings, "3").hide(fragmentSettings).commit();
         fm.beginTransaction().add(R.id.main_container, fragmentSelection, "2").hide(fragmentSelection).commit();
         fm.beginTransaction().add(R.id.main_container, fragmentCatalog, "1").commit();
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "onNavigationItemReselected: action_catalog");
                     if (active != fragmentCatalog) {
                         fm.beginTransaction().hide(active).show(fragmentCatalog).commit();
+                        getSupportActionBar().show();
                         getSupportActionBar().setDisplayShowCustomEnabled(true);
                         getSupportActionBar().setCustomView(R.layout.actionbar_main);
                         active = fragmentCatalog;
@@ -65,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "onNavigationItemReselected: action_selection");
                     if (active != fragmentSelection) {
                         fm.beginTransaction().hide(active).show(fragmentSelection).commit();
+                        getSupportActionBar().show();
                         getSupportActionBar().setDisplayShowCustomEnabled(true);
                         getSupportActionBar().setCustomView(R.layout.actionbar_selection);
                         //listeners for reset button
@@ -78,16 +83,23 @@ public class MainActivity extends AppCompatActivity {
                     }
                     return true;
                 case R.id.action_on_map:
+                    if (active != fragmentMap) {
+                        fm.beginTransaction().hide(active).show(fragmentMap).commit();
+                        getSupportActionBar().hide();
+                    }
                     Log.d(TAG, "onNavigationItemSelected: action_on_map");
 //                        fragment = new OnMapFragment();
+                    active = fragmentMap;
                     return true;
                 case R.id.action_settings:
                     Log.d(TAG, "onNavigationItemSelected: action_settings");
                     if (active != fragmentSettings) {
                         fm.beginTransaction().hide(active).show(fragmentSettings).commit();
+                        getSupportActionBar().show();
                         getSupportActionBar().setDisplayShowCustomEnabled(true);
                         getSupportActionBar().setCustomView(R.layout.actionbar_settings);
                     }
+                    active = fragmentSettings;
                     return true;
             }
             return false;
