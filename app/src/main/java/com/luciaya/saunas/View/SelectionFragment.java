@@ -97,6 +97,8 @@ public class SelectionFragment extends Fragment implements View.OnClickListener,
                 break;
             case R.id.select_accessories:
                 Toast.makeText(getActivity(), "Вы нажали: Аксессуары", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(getContext(), PromotionsActivity.class);
+                startActivity(intent1);
                 break;
         }
     }

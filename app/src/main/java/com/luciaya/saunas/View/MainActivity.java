@@ -25,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private final Fragment fragmentSettings = new SettingsFragment();
     private final SupportMapFragment fragmentMap = new MapsFragment();
     private Fragment active = fragmentCatalog;
-    private final String TAG = "Main Activity";
+    private static final String TAG = "Main Activity";
+
+    private static final String MAP_VIEW_BUNDLE_KEY = "MapViewBundleKey";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,8 +86,9 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.action_on_map:
                     if (active != fragmentMap) {
-                        fm.beginTransaction().hide(active).show(fragmentMap).commit();
                         getSupportActionBar().hide();
+                        fm.beginTransaction().hide(active).show(fragmentMap).commit();
+
                     }
                     Log.d(TAG, "onNavigationItemSelected: action_on_map");
 //                        fragment = new OnMapFragment();

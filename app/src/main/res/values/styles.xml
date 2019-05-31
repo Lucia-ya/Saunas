@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -30,15 +30,11 @@
         <item name="background">@color/action_bar_red</item>
     </style>
 
-    <style name="spinner_style">
+        <style name="spinner_style">
         <item name="android:background">@drawable/spinner</item>
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:paddingLeft">6dp</item>
-        <item name="android:paddingTop">4dp</item>
-        <item name="android:paddingBottom">4dp</item>
-        <item name="android:radius">40dp</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:popupBackground">@color/white</item>
     </style>
 

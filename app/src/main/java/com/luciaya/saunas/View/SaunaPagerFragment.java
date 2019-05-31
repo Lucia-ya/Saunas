@@ -1,8 +1,10 @@
 package com.luciaya.saunas.View;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,8 +18,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.luciaya.saunas.Helper.ImageAdapter;
 import com.luciaya.saunas.R;
 import com.luciaya.saunas.TestData.Sauna;
@@ -25,7 +33,7 @@ import com.luciaya.saunas.TestData.SaunaLab;
 
 import java.util.UUID;
 
-public class SaunaPagerFragment extends Fragment implements View.OnClickListener {
+public class SaunaPagerFragment extends Fragment implements View.OnClickListener, OnMapReadyCallback, GoogleMap.OnMapClickListener {
     private Sauna mSauna;
     private static final String ARG_SAUNA_ID = "sauna_id";
     private final String TAG = "SaunaPagerFragment";
@@ -63,7 +71,11 @@ public class SaunaPagerFragment extends Fragment implements View.OnClickListener
     private TextView secondSaunaBesideName;
     private TextView secondSaunaBesideAddress;
 
-    private GoogleMap gMap;
+    private boolean mapsSupported;
+
+    private GoogleMap googleMap;
+
+    private Bundle mapViewBundle = null;
 
 
 
@@ -81,6 +93,7 @@ public class SaunaPagerFragment extends Fragment implements View.OnClickListener
         UUID saunaId = (UUID) getArguments().getSerializable(ARG_SAUNA_ID);
         mSauna = SaunaLab.get().getSauna(saunaId);
         setHasOptionsMenu(true);
+
     }
 
     @Override
@@ -144,8 +157,10 @@ public class SaunaPagerFragment extends Fragment implements View.OnClickListener
                 noReviews.setVisibility(View.GONE);
                 if (mSauna.getReviews().get(0).isLike()) {
                     firstReviewLike.setVisibility(View.VISIBLE);
+                    firstViewDislike.setVisibility(View.GONE);
                 } else {
                     firstViewDislike.setVisibility(View.VISIBLE);
+                    firstReviewLike.setVisibility(View.GONE);
                 }
                 firstreviewName.setVisibility(View.VISIBLE);
                 firstreviewName.setText(mSauna.getReviews().get(0).getName());
@@ -158,8 +173,10 @@ public class SaunaPagerFragment extends Fragment implements View.OnClickListener
                 firstReviewLine.setVisibility(View.VISIBLE);
                 if (mSauna.getReviews().get(1).isLike()) {
                     secondReviewLike.setVisibility(View.VISIBLE);
+                    secondViewDislike.setVisibility(View.INVISIBLE);
                 } else {
                     secondViewDislike.setVisibility(View.VISIBLE);
+                    secondReviewLike.setVisibility(View.INVISIBLE);
                 }
                 secondreviewName.setVisibility(View.VISIBLE);
                 secondreviewName.setText(mSauna.getReviews().get(1).getName());
@@ -168,11 +185,11 @@ public class SaunaPagerFragment extends Fragment implements View.OnClickListener
                 secondReview.setVisibility(View.VISIBLE);
                 secondReview.setText(mSauna.getReviews().get(1).getDescription());
             }
-
             takeReview.setOnClickListener(this);
         }
 
-
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
 
 
         return view;
@@ -185,6 +202,7 @@ public class SaunaPagerFragment extends Fragment implements View.OnClickListener
     }
 
 
+    //listener for all buttons
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -196,5 +214,61 @@ public class SaunaPagerFragment extends Fragment implements View.OnClickListener
                 break;
             default:break;
         }
+    }
+
+
+    //for ggogleMap. Initialize, set Markers etc
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        if (googleMap != null) {
+            this.googleMap = googleMap;
+            //листенер виджета карты
+            googleMap.setOnMapClickListener(this);
+        }
+        MapsInitializer.initialize(this.getActivity());
+        LatLng tashkent = new LatLng(41.3167, 69.2500);
+        googleMap.addMarker(new MarkerOptions().position(tashkent).title("Ташкент").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(tashkent, 15));
+    }
+
+    @Override
+    public void onResume() {
+        mapView.onResume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+//listener mapView - show dialog with other MapView
+    @Override
+    public void onMapClick(LatLng latLng) {
+        Log.d(TAG, "onMapClick: on Map clicked");
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View promptView = layoutInflater.inflate(R.layout.fragment_map_sauna_dialog, null);
+        alertDialog.setView(promptView);
+
+        MapView mMapView = (MapView) promptView.findViewById(R.id.map_view_dialog);
+        MapsInitializer.initialize(getActivity());
+
+        mMapView.onCreate(alertDialog.onSaveInstanceState());
+        mMapView.onResume();
+        mMapView.getMapAsync(this);
+
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Назад", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int which){}
+
+        });
+        alertDialog.show();
     }
 }

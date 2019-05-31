@@ -4,7 +4,6 @@
     android:layout_width="288dp"
     android:layout_height="50dp"
     android:padding="10dp"
-    android:textStyle="italic"
     android:textColor="@color/black"
-    android:fontFamily="sans-serif-medium"
+    android:textStyle="bold"
     />

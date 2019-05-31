@@ -46,4 +46,6 @@
     <string name="receive_notifications">Получать уведомления о новых саунах</string>
     <string name="city">Город:</string>
     <string name="title_activity_maps">Map</string>
+    <string name="promotions">Акции</string>
+    <string name="on_map">На карте</string>
 </resources>

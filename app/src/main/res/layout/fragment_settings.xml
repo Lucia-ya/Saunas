@@ -15,13 +15,16 @@
         android:background="@color/white">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginEnd="70dp"
+            android:singleLine="false"
             android:text="@string/receive_promotions"
             android:textColor="@color/black"
             android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/settings_view1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -29,9 +32,9 @@
             android:id="@+id/settings_promotions_switch"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="20dp"
             android:textColorHighlight="@color/action_bar_yellow"
+            app:layout_constraintBottom_toTopOf="@+id/settings_view1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -40,21 +43,24 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
             android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settings_promotions_switch"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginEnd="70dp"
+            android:singleLine="false"
             android:text="@string/receive_notifications"
             android:textColor="@color/black"
             android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settings_view1"/>
 
@@ -62,9 +68,9 @@
             android:id="@+id/settings_notifications_switch"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="20dp"
             android:shadowColor="@color/action_bar_yellow"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settings_view1"/>
 
@@ -73,18 +79,18 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="12dp"
             android:background="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settings_notifications_switch"/>
+            app:layout_constraintTop_toTopOf="parent"/>
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/settings_select_city"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/white">
 
         <TextView
