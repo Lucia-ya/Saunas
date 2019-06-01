@@ -73,6 +73,10 @@ public class SelectionFragment extends Fragment implements View.OnClickListener,
         range_price.setIndicatorTextDecimalFormat("0");
         range_persons.setIndicatorTextDecimalFormat("0");
 
+
+        range_persons.setValue(10, 20);
+        range_price.setValue(1000, 3000);
+
         return view;
     }
 
